@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  bilibili-downloader:
+    build: .
+    container_name: bilibili-downloader
+    ports:
+      - "5577:5577"
+    volumes:
+      - ./downloaded:/app/content
+    environment:
+      - CONTENT_DIR=/app/content
+      - DOCKER_ENV=true
+    restart: unless-stopped
